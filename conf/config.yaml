@@ -1,0 +1,47 @@
+project_name: "TCC_Music_RecSys_GraphSAGE"
+author: "Lucas Borges"
+version: "1.0"
+
+paths:
+  # Dados Brutos e Intermediários
+  raw: "data/raw"
+  interim: "data/interim"
+  processed: "data/processed"
+  
+  # Grafos e Matrizes
+  graphs_bipartite: "graphs/bipartite"
+  graphs_coarsened: "graphs/bipartite/coarsened" # Onde está o matching_map
+  graphs_super: "graphs/super_item_item"         # Onde estão os embeddings dos super-nós
+  
+  # Resultados e Figuras
+  reports: "reports"
+  figures: "reports/figures"
+  metrics: "reports/metrics"
+
+files:
+  # Nomes de arquivos cruciais (para não hardcodar no python)
+  train_features: "X_train.parquet"
+  test_features: "X_test.parquet"
+  super_embeddings: "super_embeddings_mean.parquet"
+  track_embeddings: "track_embeddings_mean.parquet"
+  new_track_embeddings: "new_track_embeddings_mean.parquet"
+  matching_map: "matching_map.parquet"
+
+params:
+  # Coarsening
+  coarsening_target_nodes: 20000
+  coarsening_tolerance: 0.5
+  
+  # GraphSAGE Training
+  gnn_hidden_channels: 64
+  gnn_lr: 0.001
+  gnn_epochs: 200
+  gnn_dropout: 0.2
+  gnn_aggregator: "mean"
+  
+  # Cold-Start / Inference
+  knn_neighbors: 50
+  recall_k_values: [10, 20, 50, 100]
+  
+  # Reprodutibilidade
+  seed: 42
