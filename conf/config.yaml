@@ -20,8 +20,8 @@ paths:
 
 files:
   # Nomes de arquivos cruciais (para não hardcodar no python)
-  train_features: "X_train.parquet"
-  test_features: "X_test.parquet"
+  train_features: "train_features_v2.parquet"
+  test_features: "test_features_v2.parquet"
   super_embeddings: "super_embeddings_mean.parquet"
   track_embeddings: "track_embeddings_mean.parquet"
   new_track_embeddings: "new_track_embeddings_mean.parquet"
