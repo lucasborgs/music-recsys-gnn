@@ -21,10 +21,10 @@ The pipeline is organized into sequential notebooks:
   - `S3_load.ipynb`
   - `S4_coarsening.ipynb`
   - `S5_projection.ipynb`
-  - `S6.1_embeddings_new_tracks.ipynb`
-  - `S6_GraphSAGE.ipynbb`
-  - `S7_recommender.ipynb`
-  - `S8_visualization.ipynb`
+  - `S7_embeddings_new_tracks.ipynb`
+  - `S8_GraphSAGE.ipynbb`
+  - `S9_recommender.ipynb`
+  - `S10_visualization.ipynb`
 - `conf/`: Configuration files (`config.yaml`).
 - `src/`: Helper scripts and utilities.
 
