@@ -32,8 +32,6 @@ tcc-music-recsys-gnn/
 │   └── S10_visualization.ipynb
 ├── conf/
 │   └── config.yaml          # Configuração central (paths, hiperparâmetros)
-├── scripts/
-│   └── README.md            # Documentação dos scripts de validação
 ├── reports/
 │   └── figures/             # Figuras e gráficos gerados
 ├── .env.example             # Template de variáveis de ambiente
