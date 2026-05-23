@@ -1,5 +1,11 @@
 # GraphSAGE Music Recommendation for Cold-Start
 
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.1%2B-EE4C2C?logo=pytorch&logoColor=white)
+![PyG](https://img.shields.io/badge/PyTorch_Geometric-2.5%2B-3C2179?logo=pytorch&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+
 > Capstone project (undergraduate thesis) — a music recommender that tackles the
 > **cold-start** problem with **Graph Neural Networks (GraphSAGE)** and **graph
 > coarsening**.
@@ -236,6 +242,10 @@ cluster) shows the model recovers coherent neighbourhoods:
 - **Numba** — accelerated label propagation for coarsening
 - **pandas / pyarrow** — data pipeline
 - **Spotipy + requests** — Spotify / ReccoBeats APIs
+
+## License
+
+Released under the [MIT License](LICENSE).
 
 ## Author
 
