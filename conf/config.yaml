@@ -1,25 +1,26 @@
-project_name: "TCC_Music_RecSys_GraphSAGE"
+project_name: "Music_RecSys_GraphSAGE"
 author: "Lucas Borges"
 version: "1.0"
 
 paths:
-  # Dados Brutos e Intermediários
+  # Raw and intermediate data
   raw: "data/raw"
   interim: "data/interim"
   processed: "data/processed"
-  
-  # Grafos e Matrizes
+
+  # Graphs and matrices
   graphs_bipartite: "graphs/bipartite"
-  graphs_coarsened: "graphs/bipartite/coarsened" # Onde está o matching_map
-  graphs_super: "graphs/super_item_item"         # Onde estão os embeddings dos super-nós
-  
-  # Resultados e Figuras
+  graphs_coarsened: "graphs/bipartite/coarsened"  # holds the matching_map
+  graphs_item: "graphs/item_item"                 # full-resolution item-item graph
+  graphs_super: "graphs/super_item_item"          # super-node embeddings
+
+  # Results and figures
   reports: "reports"
   figures: "reports/figures"
   metrics: "reports/metrics"
 
 files:
-  # Nomes de arquivos cruciais (para não hardcodar no python)
+  # Canonical file names (kept here so they are not hard-coded in the notebooks)
   train_features: "train_features_v2.parquet"
   test_features: "test_features_v2.parquet"
   super_embeddings: "super_embeddings_mean.parquet"
@@ -28,20 +29,28 @@ files:
   matching_map: "matching_map.parquet"
 
 params:
-  # Coarsening
-  coarsening_target_nodes: 20000
-  coarsening_tolerance: 0.5
-  
-  # GraphSAGE Training
-  gnn_hidden_channels: 64
-  gnn_lr: 0.001
+  # --- Coarsening (S4) ---
+  coarsening_degree_threshold: 2     # core (degree >= threshold) vs tail split
+  coarsening_zeta_target: 70000      # super-node target (clamped to the core size)
+  coarsening_upper_bound: 0.15       # super-node weight tolerance margin
+  coarsening_max_iter: 100           # max label-propagation iterations
+  coarsening_tolerance: 0.002        # convergence tolerance (fraction of nodes)
+
+  # --- Item-item projection (S5) ---
+  projection_knn: 50                 # neighbours kept per super-node
+
+  # --- GraphSAGE training (S6) ---
+  gnn_hidden_channels: 64            # embedding dimension
+  gnn_lr: 0.001                      # learning rate
   gnn_epochs: 200
   gnn_dropout: 0.2
   gnn_aggregator: "mean"
-  
-  # Cold-Start / Inference
-  knn_neighbors: 50
+
+  # --- Cold-start inference (S7) ---
+  cold_start_knn: 5                  # super-node neighbours for new tracks
+
+  # --- Evaluation (S8 / S9) ---
   recall_k_values: [10, 20, 50, 100]
-  
-  # Reprodutibilidade
+
+  # --- Reproducibility ---
   seed: 42

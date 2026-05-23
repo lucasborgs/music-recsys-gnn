@@ -1,19 +1,19 @@
 # ============================================================
-# GraphSAGE Music Recommendation - TCC
-# Dependências do projeto
+# GraphSAGE Music Recommendation
+# Project dependencies
 # ============================================================
 #
-# INSTALAÇÃO BÁSICA:
+# BASIC INSTALL:
 #   pip install -r requirements.txt
 #
-# ATENÇÃO - PyTorch Geometric requer instalação separada:
-#   Consulte https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html
-#   Exemplo (CPU):
+# NOTE - PyTorch Geometric requires a separate install:
+#   See https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html
+#   Example (CPU):
 #     pip install torch-scatter torch-sparse torch-cluster torch-spline-conv -f https://data.pyg.org/whl/torch-2.4.0+cpu.html
 #     pip install torch-geometric
 # ============================================================
 
-# --- Core científico ---
+# --- Scientific core ---
 numpy>=1.26,<3.0
 pandas>=2.1
 scipy>=1.11
@@ -27,23 +27,23 @@ numba>=0.59
 torch>=2.1
 torch-geometric>=2.5
 
-# --- Grafos ---
+# --- Graphs ---
 networkx>=3.2
 python-louvain==0.16
 
-# --- Visualização ---
+# --- Visualization ---
 matplotlib>=3.8
 seaborn>=0.13
 cycler>=0.12
 
-# --- Dados / Armazenamento ---
+# --- Data / Storage ---
 pyarrow>=14.0
 pyyaml>=6.0
 kagglehub>=0.2
 
-# --- API Spotify ---
+# --- Spotify API ---
 spotipy>=2.23
 requests>=2.31
 
-# --- Utilitários ---
+# --- Utilities ---
 tqdm>=4.66
